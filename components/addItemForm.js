@@ -1,19 +1,19 @@
 import { getAllItems } from '../api/itemData';
 
-const itemSelected = () => {
-  if (obj.name === item.name) {
-    return `checked="checked"`;
-  } else {
-    return '';
-  }
-};
-
 const addItemForm = async (obj = {}) => {
   let items = await getAllItems();
   let domString = `
   <h2 class="form-header">Items!</h2>
   <form id="add-item-form">
   `;
+
+  const itemSelected = () => {
+    if (obj.name === item.name) {
+      return `checked="checked"`;
+    } else {
+      return '';
+    }
+  };
 
   items.forEach((item) => {
     domString += `
