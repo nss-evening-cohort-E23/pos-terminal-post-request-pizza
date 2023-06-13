@@ -18,6 +18,25 @@ const getAllItems = async () => {
   }
 };
 
+const getItemsByOrderFBKey = (orderFBKey) => {
+  try {
+    let response = fetch(
+      `${DBUrl}/item.json?orderBy="orderFBKey"&equalTo="${orderFBKey}"`,
+      {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      }
+    );
+    let responseJSON = response.json();
+    let orderItemsArr = Object.values(responseJSON);
+    return orderItemsArr;
+  } catch (e) {
+    console.warn(e);
+  }
+};
+
 const getSingleItem = async (firebaseKey) => {
   try {
     let response = fetch(`${DBUrl}/items/${firebaseKey}`, {
