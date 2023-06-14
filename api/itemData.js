@@ -98,4 +98,11 @@ const deleteItem = async (firebaseKey) => {
   }
 };
 
-export { getAllItems, getSingleItem, createItem, updateItem, deleteItem };
+export {
+  getAllItems,
+  getSingleItem,
+  createItem,
+  updateItem,
+  deleteItem,
+  getItemsByOrderFBKey,
+};

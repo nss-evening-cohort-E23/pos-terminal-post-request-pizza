@@ -1,7 +1,10 @@
+import renderToDom from './renderToDom';
+
 const domBuilder = () => {
   const domString = `
     <div id="navigation"></div>
     <div id="main-container">
+      <div id="login-form-container"></div>
       <div id="view-orders"></div>
       <div id="form-container"></div>
       <div id="order-details"></div>
@@ -9,5 +12,7 @@ const domBuilder = () => {
       <div id="revenue"></div>
     </div>`;
 
-  renderToDOM('#app', domString);
+  renderToDom('#app', domString);
 };
+
+export default domBuilder;
