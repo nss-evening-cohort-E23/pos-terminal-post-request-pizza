@@ -1,3 +1,5 @@
+import renderToDom from '../../utils/renderToDom';
+
 // NAVBAR
 const navBar = () => {
   const domString = `<nav class="navbar fixed-top navbar-expand-lg mb-5">
@@ -21,8 +23,8 @@ const navBar = () => {
       </div>
       </div>
     </nav>`;
-    // TODO: RENDER THE LOGOUT BUTTON TO THE #logout-button DIV
-  renderToDOM('#navigation', domString);
+  // TODO: RENDER THE LOGOUT BUTTON TO THE #logout-button DIV
+  renderToDom('#navigation', domString);
 };
 
 export default navBar;
