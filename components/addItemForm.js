@@ -30,7 +30,9 @@ const addItemForm = async (obj = {}) => {
         <label for="add-new-name" style="visibility: hidden">Add New Item</label>
         <input type="text" id="new-item-price" style="visibility: hidden">
         <label for="new-item-price" style="visibility: hidden">Add New Item</label>
-        <button type="submit" id=${obj.firebaseKey ? 'update-item-btn' : 'add-item-btn'}>Add/Edit Item</button>
+        <button type="submit" id=${
+          obj.firebaseKey ? 'update-item-btn' : 'add-item-btn'
+        }>Add/Edit Item</button>
     </form>
     `;
 };
