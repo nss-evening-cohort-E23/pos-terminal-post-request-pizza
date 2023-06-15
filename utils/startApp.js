@@ -19,7 +19,7 @@ const startApp = (user) => {
   // getOrdersPlaceholder(user.uid).then((orders) => showWords(orders)); // Puts all orders on the DOM at App load & Pass userID to display items based on UID.
   landingPage(); // This will run the introduction when user is logged in
   navigationEvents(user); // ATTACH THE EVENT LISTENERS TO THE NAVBAR
-   getAllOrders(user.uid).then((orders) => showOrders(orders)); // Puts all orders on the DOM at App load & Pass userID to display items based on UID.
+  getAllOrders(user.uid).then((orders) => showOrders(orders)); // Puts all orders on the DOM at App load & Pass userID to display items based on UID.
 };
 
 export default startApp;
