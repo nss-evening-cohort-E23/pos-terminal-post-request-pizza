@@ -1,4 +1,5 @@
 import navBar from '../components/shared/navbar';
+import landingPage from '../pages/landing-page';
 import domBuilder from './domBuilder';
 // import logoutButton from '../components/buttons/logoutButton';
 
@@ -17,6 +18,7 @@ const startApp = (user) => {
   // logoutButton(); // ADD THE LOGOUT BUTTON COMPONENT
   // navigationEvents(user); // ATTACH THE EVENT LISTENERS TO THE NAVBAR
   // getOrdersPlaceholder(user.uid).then((orders) => showWords(orders)); // Puts all orders on the DOM at App load & Pass userID to display items based on UID.
+  landingPage(); // This will run the introduction when user is logged in
 };
 
 export default startApp;
