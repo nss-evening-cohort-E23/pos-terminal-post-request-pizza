@@ -1,5 +1,5 @@
 import navBar from '../components/shared/navbar';
-import domBuilder from './domBuilder';
+import domBuilder from '../components/shared/domBuilder';
 // import logoutButton from '../components/buttons/logoutButton';
 
 // import domEvents from '../events/domEvents';

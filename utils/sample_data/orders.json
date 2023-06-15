@@ -1,0 +1,54 @@
+{
+  "--NXrYd1X_2ggTzt1GBTm": {
+      "customerEmail": "abc@1234.com",
+      "customerPhone": "11112345678",
+      "date": "",
+      "firebaseKey": "-NXrYd1X_2ggTzt1GBTm",
+      "open": "true",
+      "orderIdFBKey": "",
+      "orderType": "Walk-In",
+      "paymentType": "Credit Card",
+      "tipAmount": "4",
+      "totalOrderAmount": "20",
+      "uid": ""
+  },
+  "-NXrZFy4aBvWRsu_E1iT": {
+      "customerEmail": "abc@1234.com",
+      "customerPhone": "11112345678",
+      "date": "",
+      "firebaseKey": "--NXrZFy4aBvWRsu_E1iT",
+      "open": "true",
+      "orderIdFBKey": "",
+      "orderType": "Call-In",
+      "paymentType": "Credit Card",
+      "tipAmount": "6",
+      "totalOrderAmount": "30",
+      "uid": ""
+  },
+  "-NXr_z_BWbqlIShzc_q2": {
+      "customerEmail": "abc@1234.com",
+      "customerPhone": "11112345678",
+      "date": "",
+      "firebaseKey": "-NXr_z_BWbqlIShzc_q2",
+      "open": "false",
+      "orderIdFBKey": "",
+      "orderType": "Walk-In",
+      "paymentType": "Cash",
+      "tipAmount": "12",
+      "totalOrderAmount": "$60",
+      "uid": ""
+  },
+  "-NXwk9H1gnIgAMKnbWck": {
+      "customerEmail": "abc@1234.com",
+      "customerPhone": "11112345678",
+      "date": "",
+      "firebaseKey": "-NXwk9H1gnIgAMKnbWck",
+      "open": "true",
+      "orderIdFBKey": "",
+      "orderType": "Walk-In",
+      "paymentType": "Credit Card",
+      "tipAmount": "24",
+      "totalOrderAmount": "$120",
+      "uid": ""
+  }
+}

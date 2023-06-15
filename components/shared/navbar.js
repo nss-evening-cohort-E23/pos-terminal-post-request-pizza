@@ -13,6 +13,7 @@ const navBar = () => {
       <button id="create-order" class="btn btn-success">Create An Order</button>
       </div>
       <button id="view-order" class="btn btn-success">View An Order</button>
+      <button id="view-revenue" class="btn btn-success">View Revenue</button>
       <form class="form-inline my-2 my-lg-0">
           <input class="form-control mr-sm-2" id="search-cards" type="search" placeholder="Search" aria-label="Search">
           <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
