@@ -5,6 +5,7 @@ const clearDom = () => {
   document.querySelector('#form-container').innerHTML = '';
   document.querySelector('#close-orders').innerHTML = '';
   document.querySelector('#revenue').innerHTML = '';
+  document.querySelector('#login-form-container').innerHTML = '';
 };
 
 export default clearDom;

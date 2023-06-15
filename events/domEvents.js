@@ -2,7 +2,7 @@ import { deleteOrder, getAllOrders, getSingleOrder } from "../api/orderData";
 import addOrderForm from "../components/addOrderForm";
 import { showOrders } from "../pages/orderCards";
 
-const domEvents = () => {
+const domEvents = (user) => {
   document.querySelector('#main-container').addEventListener('click', (e) => {
     // FOR DELETING AN ORDER
     if (e.target.id.includes('delete-order')) {
@@ -20,6 +20,10 @@ const domEvents = () => {
     // SHOW FORM FOR ADDING A CARD
     if (e.target.id.includes('create-order')) {
       addOrderForm({});
+    }
+
+    if (e.target.id.includes('view-orders')) {
+      getAllOrders(user.uid).then((orders) => showOrders(orders));
     }
 
     // FOR EDITING/UPDATING A CARD
