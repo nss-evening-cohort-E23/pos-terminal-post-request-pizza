@@ -32,12 +32,7 @@ const domEvents = (user) => {
 
       getSingleOrder(firebaseKey).then((orderObj) => addOrderForm(orderObj, user));
     }
-
-    // VIEW REVENUE PAGE
-  document.querySelector('#view-revenue').addEventListener('click', () => {
-    // console.warn(e.target, 'VIEW REVENUE BUTTON CLICKED');
-    showRevenueOrders(user).then(getAllOrders);
-  })
+    
     // END OF domEvents
   });
 };
