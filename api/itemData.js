@@ -1,3 +1,7 @@
+import client from '../utils/client';
+
+const DBUrl = client.databaseURL;
+
 const getAllItems = async () => {
   try {
     let response = await fetch(`${DBUrl}/items.json`, {
@@ -18,10 +22,10 @@ const getAllItems = async () => {
   }
 };
 
-const getItemsByOrderFBKey = (orderFBKey) => {
+const getItemsForRadios = async () => {
   try {
-    let response = fetch(
-      `${DBUrl}/item.json?orderBy="orderFBKey"&equalTo="${orderFBKey}"`,
+    let response = await fetch(
+      `${DBUrl}/items.json?orderBy="orderFBKey"&equalTo=null`,
       {
         method: 'GET',
         headers: {
@@ -29,9 +33,37 @@ const getItemsByOrderFBKey = (orderFBKey) => {
         },
       }
     );
-    let responseJSON = response.json();
+    let itemsJSON = await response.json();
+    let itemsArr = Object.values(itemsJSON);
+    if (itemsArr) {
+      return itemsArr;
+    } else {
+      return [];
+    }
+  } catch (e) {
+    console.warn(e);
+  }
+};
+
+const getItemsByOrderFBKey = async (orderFBKey) => {
+  try {
+    let response = await fetch(
+      `${DBUrl}/items.json?orderBy="orderFBKey"&equalTo="${orderFBKey}"`,
+      {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      }
+    );
+    let responseJSON = await response.json();
     let orderItemsArr = Object.values(responseJSON);
-    return orderItemsArr;
+    console.log(orderItemsArr);
+    if (orderItemsArr) {
+      return orderItemsArr;
+    } else {
+      return [];
+    }
   } catch (e) {
     console.warn(e);
   }
@@ -39,7 +71,7 @@ const getItemsByOrderFBKey = (orderFBKey) => {
 
 const getSingleItem = async (firebaseKey) => {
   try {
-    let response = fetch(`${DBUrl}/items/${firebaseKey}`, {
+    let response = await fetch(`${DBUrl}/items/${firebaseKey}`, {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
@@ -54,7 +86,7 @@ const getSingleItem = async (firebaseKey) => {
 
 const createItem = async (payload) => {
   try {
-    let response = fetch(`${DBUrl}/items.json`, {
+    let response = await fetch(`${DBUrl}/items.json`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -71,7 +103,7 @@ const createItem = async (payload) => {
 
 const updateItem = async (payload) => {
   try {
-    let response = fetch(`${DBUrl}/items/${payload.firebaseKey}`, {
+    let response = await fetch(`${DBUrl}/items/${payload.firebaseKey}`, {
       method: 'PATCH',
       headers: {
         'Content-Type': 'application/json',
@@ -86,7 +118,7 @@ const updateItem = async (payload) => {
 
 const deleteItem = async (firebaseKey) => {
   try {
-    let response = fetch(`${DBUrl}/items/${firebaseKey}`, {
+    let response = await fetch(`${DBUrl}/items/${firebaseKey}`, {
       method: 'DELETE',
       headers: {
         'Content-Type': 'application/json',
@@ -105,4 +137,5 @@ export {
   updateItem,
   deleteItem,
   getItemsByOrderFBKey,
+  getItemsForRadios,
 };
