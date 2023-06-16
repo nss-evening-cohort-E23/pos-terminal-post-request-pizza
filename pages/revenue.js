@@ -8,36 +8,35 @@ import { getAllOrders } from '../api/orderData';
 //   renderToDom('#revenue', domString);
 // };
 
-// const showRevOrders = (array) => {
-//   clearDom();
+const showRevenueOrders = () => {
+  
+  const sumCallInOrders = async () => {
+    let callInOrders = 0;
+    let orders = await getAllOrders();
+    orders.forEach((order) => {
+      if (order.orderType === 'Call-In') {
+        callInOrders++;
+      }
+    });
+    return callInOrders;
+  };
 
-const sumCallInOrders = async () => {
-  let callInOrders = 0;
-  let orders = await getAllOrders();
-  orders.forEach((order) => {
-    if (order.orderType === 'Call-In') {
-      callInOrders++;
-    }
-  });
-  return callInOrders;
-};
-
-const sumWalkInOrders = async () => {
-  let walkInORders = 0;
-  let orders = await getAllOrders();
-  orders.forEach((order) => {
-    if (order.orderType === 'Walk-In') {
-      walkInOrders++;
-    }
-  });
-  return walkInOrders;
-}
+  const sumWalkInOrders = async () => {
+    let walkInOrders = 0;
+    let orders = await getAllOrders();
+    orders.forEach((order) => {
+      if (order.orderType === 'Walk-In') {
+        walkInOrders++;
+      }
+    });
+    return walkInOrders;
+  }
 
 const totalRevenue = async () => {
   let domString = `
         <p>Total Tips: </p>
-        <p>Total Call-In Orders: ${sumCallInOrders()}</p>
-        <p>Total Walk-In Orders: ${sumWalkInOrders()}</p>
+        <p>Total Call-In Orders: ${await sumCallInOrders()}</p>
+        <p>Total Walk-In Orders: ${await sumWalkInOrders()}</p>
         <hr>
         <p>Payment Types:</p>
         <p>Cash - </p>
@@ -45,6 +44,9 @@ const totalRevenue = async () => {
         <p>Mobile - </p>
   `;
   renderToDom('#revenue', domString);
+ };
+ totalRevenue();
+ 
 };
 
-export default totalRevenue;
+export default showRevenueOrders;
