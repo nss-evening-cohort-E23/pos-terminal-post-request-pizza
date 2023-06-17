@@ -3,35 +3,30 @@ import renderToDom from '../utils/renderToDom';
 import { getAllOrders } from '../api/orderData';
 
 
-// const emptyRevenue = () => {
-//   const domString = '<h1>No Revenue</h1>';
-//   renderToDom('#revenue', domString);
-// };
+const emptyRevenue = () => {
+  const domString = '<h1>No Revenue</h1>';
+  renderToDom('#revenue', domString);
+};
 
 const showRevenueOrders = () => {
 
-  // const testRevenue = async () => {
-  //   let cartTotal = orders.filter(order => order.totalOrderAmount);
-  //   const total = cartTotal.reduce((value1, value2) => value1 + value2.totalOrderAmount, 0);
-  // }
-
   const totalRevenue = async () => {
-    let sumTotalRevenue = '$5,745.00';
+    let sumTotalRevenue = 0;
     let orders = await getAllOrders();
     orders.forEach((order) => {
-      if (order.totalOrderAmount === '120') {
-        sumTotalRevenue++;
+      if (order.open === false) {
+        sumTotalRevenue += order.totalOrderAmount;
       }
     })
     return sumTotalRevenue;
   }
 
   const totalTips = async () => {
-    let sumTotalTips = '$1,140.00';
+    let sumTotalTips = 0;
     let orders = await getAllOrders();
     orders.forEach((order) => {
-      if (order.tipAmount === '60') {
-        sumTotalTips++;
+      if (order.open === false) {
+        sumTotalTips += order.tipAmount;
       }
     })
     return sumTotalTips;
@@ -95,11 +90,11 @@ const showRevenueOrders = () => {
 
 const revenue = async () => {
   let domString = `
-        <h1>REVENUE</h1>
+        <h1 id="revenueTitle">REVENUE</h1>
         <hr>
-        <h2>TOTAL REVENUE: ${await totalRevenue()}</h2>
+        <h2 id="totalRevenueTitle">TOTAL REVENUE: $${await totalRevenue()}</h2>
         &nbsp;
-        <h5>Total Tips: ${await totalTips()}</h5>
+        <h5>Total Tips: $${await totalTips()}</h5>
         <p>Total Call-In Orders: ${await sumCallInOrders()}</p>
         <p>Total Walk-In Orders: ${await sumWalkInOrders()}</p>
         <hr>
@@ -116,3 +111,4 @@ const revenue = async () => {
 };
 
 export default showRevenueOrders;
+export { emptyRevenue };
