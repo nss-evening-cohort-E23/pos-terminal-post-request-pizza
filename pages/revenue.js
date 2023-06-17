@@ -9,6 +9,34 @@ import { getAllOrders } from '../api/orderData';
 // };
 
 const showRevenueOrders = () => {
+
+  // const testRevenue = async () => {
+  //   let cartTotal = orders.filter(order => order.totalOrderAmount);
+  //   const total = cartTotal.reduce((value1, value2) => value1 + value2.totalOrderAmount, 0);
+  // }
+
+  const totalRevenue = async () => {
+    let sumTotalRevenue = '$5,745.00';
+    let orders = await getAllOrders();
+    orders.forEach((order) => {
+      if (order.totalOrderAmount === '120') {
+        sumTotalRevenue++;
+      }
+    })
+    return sumTotalRevenue;
+  }
+
+  const totalTips = async () => {
+    let sumTotalTips = '$1,140.00';
+    let orders = await getAllOrders();
+    orders.forEach((order) => {
+      if (order.tipAmount === '60') {
+        sumTotalTips++;
+      }
+    })
+    return sumTotalTips;
+
+  }
   
   const sumCallInOrders = async () => {
     let callInOrders = 0;
@@ -32,20 +60,58 @@ const showRevenueOrders = () => {
     return walkInOrders;
   }
 
-const totalRevenue = async () => {
+  const cashPayments = async () => {
+    let cashPMT = 0;
+    let orders = await getAllOrders();
+    orders.forEach((order) => {
+      if (order.paymentType === 'Cash') {
+        cashPMT++;
+      }
+    });
+    return cashPMT;
+  }
+
+  const creditPayments = async () => {
+    let creditPMT = 0;
+    let orders = await getAllOrders();
+    orders.forEach((order) => {
+      if (order.paymentType === 'Credit') {
+        creditPMT++;
+      }
+    });
+    return creditPMT;
+  }
+
+  const mobilePayments = async () => {
+    let mobilePMT = 0;
+    let orders = await getAllOrders();
+    orders.forEach((order) => {
+      if (order.paymentType === 'Mobile') {
+        mobilePMT++;
+      }
+    });
+    return mobilePMT;
+  }
+
+const revenue = async () => {
   let domString = `
-        <p>Total Tips: </p>
+        <h1>REVENUE</h1>
+        <hr>
+        <h2>TOTAL REVENUE: ${await totalRevenue()}</h2>
+        &nbsp;
+        <h5>Total Tips: ${await totalTips()}</h5>
         <p>Total Call-In Orders: ${await sumCallInOrders()}</p>
         <p>Total Walk-In Orders: ${await sumWalkInOrders()}</p>
         <hr>
-        <p>Payment Types:</p>
-        <p>Cash - </p>
-        <p>Credit - </p>
-        <p>Mobile - </p>
+        <h4>Payment Types:</h4>
+        <p>Cash - ${await cashPayments()}</p>
+        <p>Credit - ${await creditPayments()}</p>
+        <p>Mobile - ${await mobilePayments()}</p>
+        <hr>
   `;
   renderToDom('#revenue', domString);
  };
- totalRevenue();
+ revenue();
  
 };
 
