@@ -1,4 +1,8 @@
-import { getItemsByOrderFBKey, getSingleItem } from '../api/itemData';
+import {
+  deleteItem,
+  getItemsByOrderFBKey,
+  getSingleItem,
+} from '../api/itemData';
 import { deleteOrder, getAllOrders, getSingleOrder } from '../api/orderData';
 import addItemForm from '../components/addItemForm';
 import addOrderForm from '../components/addOrderForm';
@@ -49,11 +53,29 @@ const domEvents = (user) => {
         await showOrderDetails(firebaseKey);
       }
 
+      //FOR ADDING AN ITEM TO AN ORDER
+      if (e.target.id.includes('add-item-btn')) {
+        const [, orderFirebaseKey] = e.target.id.split('--');
+        let item = { orderFBKey: orderFirebaseKey };
+        console.log('additembtn item', item);
+        addItemForm(item);
+      }
+      //FOR EDITING AND ITEM
       if (e.target.id.includes('edit-item-btn')) {
         const [, firebaseKey] = e.target.id.split('--');
+        console.log(firebaseKey);
         let item = await getSingleItem(firebaseKey);
         addItemForm(item);
       }
+      //FOR DELETING AN ITEM
+      if (e.target.id.includes('delete-item-btn')) {
+        const [, firebaseKey] = e.target.id.split('--');
+        let item = await getSingleItem(firebaseKey);
+        let orderFBKey = item.orderFBKey;
+        await deleteItem(firebaseKey);
+        await showOrderDetails(orderFBKey);
+      }
+
       // END OF domEvents
     });
 };

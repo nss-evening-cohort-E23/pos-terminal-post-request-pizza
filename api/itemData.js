@@ -58,7 +58,6 @@ const getItemsByOrderFBKey = async (orderFBKey) => {
     );
     let responseJSON = await response.json();
     let orderItemsArr = Object.values(responseJSON);
-    console.log(orderItemsArr);
     if (orderItemsArr) {
       return orderItemsArr;
     } else {
@@ -71,13 +70,14 @@ const getItemsByOrderFBKey = async (orderFBKey) => {
 
 const getSingleItem = async (firebaseKey) => {
   try {
-    let response = await fetch(`${DBUrl}/items/${firebaseKey}`, {
+    let response = await fetch(`${DBUrl}/items/${firebaseKey}.json`, {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
       },
     });
     let item = await response.json();
+    console.log(item);
     return item;
   } catch (e) {
     console.warn(e);
@@ -93,8 +93,9 @@ const createItem = async (payload) => {
       },
       body: JSON.stringify(payload),
     });
-    let responseJSON = response.json();
+    let responseJSON = await response.json();
     let firebaseKey = responseJSON.name;
+    console.log('newItemFBKey', firebaseKey);
     await updateItem({ firebaseKey });
   } catch (e) {
     console.warn(e);
@@ -103,7 +104,7 @@ const createItem = async (payload) => {
 
 const updateItem = async (payload) => {
   try {
-    let response = await fetch(`${DBUrl}/items/${payload.firebaseKey}`, {
+    let response = await fetch(`${DBUrl}/items/${payload.firebaseKey}.json`, {
       method: 'PATCH',
       headers: {
         'Content-Type': 'application/json',
@@ -118,7 +119,7 @@ const updateItem = async (payload) => {
 
 const deleteItem = async (firebaseKey) => {
   try {
-    let response = await fetch(`${DBUrl}/items/${firebaseKey}`, {
+    let response = await fetch(`${DBUrl}/items/${firebaseKey}.json`, {
       method: 'DELETE',
       headers: {
         'Content-Type': 'application/json',

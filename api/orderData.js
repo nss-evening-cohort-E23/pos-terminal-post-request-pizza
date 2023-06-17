@@ -65,7 +65,7 @@ const updateOrder = async (payload) => {
     });
     return await response.json();
   } catch (e) {
-    console.log(e);
+    console.warn(e);
   }
 };
 
