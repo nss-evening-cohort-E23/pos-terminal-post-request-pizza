@@ -22,12 +22,7 @@ const navigationEvents = (user) => {
     getAllOrders(user).then(showOrders);
   }
 
-  // VIEW REVENUE PAGE
-  if (e.target.id.includes('view-revenue')) {
-    // console.warn(e.target, 'VIEW REVENUE BUTTON CLICKED');
-    clearDom();
-    showRevenueOrders(user);
-  }
+
   })
   // END OF navigationEvents
 }

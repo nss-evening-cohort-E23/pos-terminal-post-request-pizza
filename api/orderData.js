@@ -65,13 +65,13 @@ const updateOrder = async (payload) => {
     });
     return await response.json();
   } catch (e) {
-    console.log(e);
+    console.warn(e);
   }
 };
 
 const deleteOrder = async (firebaseKey) => {
   try {
-    let response = fetch(`${DBUrl}/orders/${firebaseKey}.json`, {
+    let response = await fetch(`${DBUrl}/orders/${firebaseKey}.json`, {
       method: 'DELETE',
       headers: {
         'Content-Type': 'application/json',

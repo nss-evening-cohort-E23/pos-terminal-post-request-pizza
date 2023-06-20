@@ -1,18 +1,17 @@
-import clearDom from "../utils/clearDom";
-import renderToDom from "../utils/renderToDom";
+import clearDom from '../utils/clearDom';
+import renderToDom from '../utils/renderToDom';
 
-const closeOrderForm = (obj = {}) => {
-    clearDom();
-    const domString = `
+const closeOrderForm = (obj) => {
+  clearDom();
+  const domString = `
     <div class="close-orders">
     <div class="dropdown">
-    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropDownMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-      Payment Type
-    </button>
-    <div class="dropdown-menu" aria-labelledby="dropDownMenu">
-      <button class="dropdown-item" type="button" value="Credit Card">Credit Card</button>
-      <button class="dropdown-item" type="button" value="Cash">Cash</button>
-    </div>
+    <h2 id="dropdown-label">Payment Type: </h2>
+    <select id="dropdown-menu" aria-labelledby="dropDownMenu">
+      <label for="dropdown-menu">Payment Type:</label>
+      <option id="dropdown-item" value="Credit Card">Credit Card</option>
+      <option id="dropdown-item" value="Cash">Cash</button>
+    </select>
   </div>
 
     <div class="form-group mt-3">
@@ -20,11 +19,11 @@ const closeOrderForm = (obj = {}) => {
       <input type="text" class="form-control" id="tipAmount" placeholder="Enter tip amount" required>
     </div>
 
-    <button id="close-order-btn" class="btn btn-success btn-lg">Close Orders</button>
+    <button id="close-order-btn--${obj.firebaseKey}" class="btn btn-success btn-lg">Close Orders</button>
   </div>
     `;
 
-    renderToDom('#close-orders', domString);
-}
+  renderToDom('#close-orders', domString);
+};
 
 export default closeOrderForm;

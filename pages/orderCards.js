@@ -1,5 +1,5 @@
-import clearDom from "../utils/clearDom";
-import renderToDom from "../utils/renderToDom";
+import clearDom from '../utils/clearDom';
+import renderToDom from '../utils/renderToDom';
 
 // ORDER CARD STRUCTURE
 const emptyOrders = () => {
@@ -17,19 +17,25 @@ const showOrders = (array) => {
     <div class="card" id="orderClosedCards">
     <div class="card-body">
     <h5 class="card-title fs-2">Order Name: ${order.orderName}</h5>
-      <p class="fs-4">Order Status: ${order.open? 'open':'closed'}</p>
+      <p class="fs-4">Order Status: ${order.open ? 'open' : 'closed'}</p>
       <p class="fs-4">Phone: ${order.customerPhone}</p>
       <p class="fs-4">Email: ${order.customerEmail}</p>
       <p class="fs-4">Type: ${order.orderType}</p>
       </div>
       <div id="card-buttons">
-      <button id="view-order-details--${order.firebaseKey}" class="btn btn-success fs-4">Details</button>
-      <button id="edit-order--${order.firebaseKey}" class="btn btn-success fs-4">Edit Order</button>
-      <button id="delete-order--${order.firebaseKey}" class="btn btn-success fs-4">Delete</button>
+      <button id="order-details--${
+        order.firebaseKey
+      }" class="btn btn-success fs-4">Details</button>
+      <button id="edit-order--${
+        order.firebaseKey
+      }" class="btn btn-success fs-4">Edit Order</button>
+      <button id="delete-order--${
+        order.firebaseKey
+      }" class="btn btn-success fs-4">Delete</button>
       </div>
   </div>`;
   });
-  
+
   renderToDom('#view-orders', domString);
 };
 
