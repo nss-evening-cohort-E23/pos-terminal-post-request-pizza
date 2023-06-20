@@ -45,6 +45,19 @@ const formEvents = () => {
         getAllOrders(user.uid).then(showOrders);
       })
     }
+
+    // Close Order Button
+    if(e.target.id.includes('close-order-btn')) {
+      const payload = {
+        paymentType: document.querySelector('#dropDownMenu').value,
+        tipAmount: document.querySelector('#tipAmount').value,
+        open: false,
+      };
+
+      updateOrder(payload).then(() => {
+        getAllOrders(user.uid).then(showOrders);
+      })
+    }
     // end of formEvents
   });
 };
