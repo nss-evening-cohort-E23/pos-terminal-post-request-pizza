@@ -25,22 +25,37 @@ const formEvents = (user) => {
         
           getAllOrders(user.uid).then(showOrders);
         };
-      }
-  )}
 
+    // FOR EDITING ORDER
+    if (e.target.id.includes('update-word')) {
+      const [, firebaseKey] = e.target.id.split('--');
+      const payload = {
+        orderName: document.querySelector('#order-name').value,
+        customerPhone: document.querySelector('#phone').value,
+        customerEmail: document.querySelector('#email').value,
+        orderType: document.querySelector('#type-input').value,
+        firebaseKey,
+      };
 
-// const formEvents2 = (user) => {
-//   document.querySelector('#main-container').addEventListener('submit', (e) => {
-//     e.preventDefault();
-//     // FOR SUBMITTING ORDER FORM
-    
+      updateOrder(payload).then(() => {
+        getAllOrders(user.uid).then(showOrders);
+      })
+    }
 
-//     // END OF FORMEVENTS2
-//   })
-// }
- 
+    // Close Order Button
+    if(e.target.id.includes('close-order-btn')) {
+      const payload = {
+        paymentType: document.querySelector('#dropDownMenu').value,
+        tipAmount: document.querySelector('#tipAmount').value,
+        open: false,
+      };
 
- 
-
+      updateOrder(payload).then(() => {
+        getAllOrders(user.uid).then(showOrders);
+      })
+    }
+    // end of formEvents
+  });
+};
 
 export default formEvents;

@@ -19,7 +19,8 @@ const domEvents = (user) => {
 
     // SHOW FORM FOR ADDING A CARD
     if (e.target.id.includes('create-order')) {
-      addOrderForm({});
+      addOrderForm({}, user);
+      console.warn('click');
     }
 
     if (e.target.id.includes('view-orders')) {

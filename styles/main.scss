@@ -8,3 +8,14 @@ body {
   text-align: center;
   margin-top: 100px;
 }
+
+#revenue {
+  display: flex;
+  justify-content: center;
+  flex-flow: column center;
+  color: rgba(255, 255, 255, 0.737);
+  background-color: black;
+  font-weight: bold;
+  font-size: 100%;
+  margin-top: 15%;
+}
