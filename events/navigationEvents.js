@@ -8,13 +8,13 @@ import clearDom from '../utils/clearDom';
 
 
 const navigationEvents = (user) => {
-  document.querySelector('#main-container').addEventListener('click', (e) => {
+  document.querySelector('#navigation').addEventListener('click', (e) => {
   // LOGOUT BUTTON
   if (e.target.id.includes('logout-button')) {
     signOut();
   }
   // GET 'CREATE AN ORDER' FORM TO SHOW
-  if (e.target.id.includes('create-order')) {
+  if (e.target.id.includes('create-order-landing')) {
     addOrderForm({});
   }
   // GET 'VIEW ORDERS' BUTTON TO WORK
