@@ -10,7 +10,7 @@ const navBar = () => {
         <span class="navbar-toggler-icon"></span>
       </button>
       <div>
-      <button id="create-order" class="btn btn-success">Create An Order</button>
+      <button id="create-order-landing" class="btn btn-success">Create An Order</button>
       </div>
       <button id="view-order" class="btn btn-success">View Orders</button>
       <form class="form-inline my-2 my-lg-0">

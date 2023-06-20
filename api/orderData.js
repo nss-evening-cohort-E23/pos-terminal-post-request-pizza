@@ -39,14 +39,14 @@ const getSingleOrder = async (firebaseKey) => {
 
 const createOrder = async (payload) => {
   try {
-    let response = fetch(`${DBUrl}/orders.json`, {
+    let response = await fetch(`${DBUrl}/orders.json`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify(payload),
     });
-    let responseJSON = response.json();
+    let responseJSON = await response.json();
     let firebaseKey = responseJSON.name;
     await updateOrder({ firebaseKey });
   } catch (e) {
@@ -56,7 +56,7 @@ const createOrder = async (payload) => {
 
 const updateOrder = async (payload) => {
   try {
-    let response = fetch(`${DBUrl}/orders/${payload.firebaseKey}`, {
+    let response = await fetch(`${DBUrl}/orders/${payload.firebaseKey}.json`, {
       method: 'PATCH',
       headers: {
         'Content-Type': 'application/json',
@@ -71,7 +71,7 @@ const updateOrder = async (payload) => {
 
 const deleteOrder = async (firebaseKey) => {
   try {
-    let response = fetch(`${DBUrl}/orders/${firebaseKey}`, {
+    let response = fetch(`${DBUrl}/orders/${firebaseKey}.json`, {
       method: 'DELETE',
       headers: {
         'Content-Type': 'application/json',

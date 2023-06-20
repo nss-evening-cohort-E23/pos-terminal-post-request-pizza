@@ -18,8 +18,9 @@ const domEvents = (user) => {
     }
 
     // SHOW FORM FOR ADDING A CARD
-    if (e.target.id.includes('create-order')) {
-      addOrderForm({});
+    if (e.target.id.includes('create-order-landing')) {
+      console.warn('click');
+      addOrderForm({}, user);
     }
 
     if (e.target.id.includes('view-orders')) {
@@ -32,7 +33,14 @@ const domEvents = (user) => {
 
       getSingleOrder(firebaseKey).then((orderObj) => addOrderForm(orderObj, user));
     }
-    
+
+    // TODO: ClICK EVENT FOR ORDER DETAILS
+    if (e.target.id.includes('view-order-details')) {
+      const [, firebaseKey] = e.target.id.split('--');
+
+      getOrderDetails(firebaseKey).then(viewOrders);
+    }
+
     // END OF domEvents
   });
 };
