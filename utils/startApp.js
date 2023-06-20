@@ -13,10 +13,10 @@ const startApp = (user) => {
   domBuilder(user); // BUILD THE DOM
   domEvents(user); // ADD THE EVENT LISTENTERS TO THE DOM
   formEvents(user); // ADD FORM EVENT LISTENTERS TO THE DOM
+  // formEvents2(user);
   navBar(); // DYNAMICALLY ADD THE NAVBAR
   // logoutButton(); // ADD THE LOGOUT BUTTON COMPONENT
-  // navigationEvents(user); // ATTACH THE EVENT LISTENERS TO THE NAVBAR
-  // getOrdersPlaceholder(user.uid).then((orders) => showWords(orders)); // Puts all orders on the DOM at App load & Pass userID to display items based on UID.
+  getAllOrders(user).then((orders) => showOrders(orders)); // Puts all orders on the DOM at App load & Pass userID to display items based on UID.
   navigationEvents(user); // ATTACH THE EVENT LISTENERS TO THE NAVBAR
   landingPage(); // This will run the introduction when user is logged in
 };

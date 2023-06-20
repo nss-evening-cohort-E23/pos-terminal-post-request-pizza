@@ -32,6 +32,14 @@ const domEvents = (user) => {
 
       getSingleOrder(firebaseKey).then((orderObj) => addOrderForm(orderObj, user));
     }
+
+    // TODO: ClICK EVENT FOR ORDER DETAILS
+    if (e.target.id.includes('view-order-details')) {
+      const [, firebaseKey] = e.target.id.split('--');
+
+      getOrderDetails(firebaseKey).then(viewOrders);
+    }
+
     // END OF domEvents
   });
 };
