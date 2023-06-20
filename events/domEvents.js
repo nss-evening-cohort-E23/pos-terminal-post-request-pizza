@@ -32,6 +32,7 @@ const domEvents = (user) => {
 
       getSingleOrder(firebaseKey).then((orderObj) => addOrderForm(orderObj, user));
     }
+    
     // END OF domEvents
   });
 };
