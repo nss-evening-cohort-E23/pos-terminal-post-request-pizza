@@ -1,4 +1,9 @@
-import { createItem, getSingleItem, updateItem } from '../api/itemData';
+import {
+  createItem,
+  getItemsByOrderFBKey,
+  getSingleItem,
+  updateItem,
+} from '../api/itemData';
 import { createOrder, getAllOrders, updateOrder } from '../api/orderData';
 import { showOrders } from '../pages/orderCards';
 import showOrderDetails from '../pages/orderDetails';
@@ -24,13 +29,14 @@ const formEvents = (user) => {
         getAllOrders(user.uid).then(showOrders);
       }
 
-      if (e.target.id.includes('update-word')) {
+      if (e.target.id.includes('update-order-btn')) {
+        e.preventDefault();
         const [, firebaseKey] = e.target.id.split('--');
         const payload = {
-          orderName: document.querySelector('#order-name').value,
+          orderName: document.querySelector('#order_name').value,
           customerPhone: document.querySelector('#phone').value,
           customerEmail: document.querySelector('#email').value,
-          orderType: document.querySelector('#type-input').value,
+          orderType: document.querySelector('#type_input').value,
           firebaseKey,
         };
 
@@ -145,10 +151,16 @@ const formEvents = (user) => {
       // Close Order Button
       if (e.target.id.includes('close-order-btn')) {
         const [, firebaseKey] = e.target.id.split('--');
+        let orderItems = await getItemsByOrderFBKey(firebaseKey);
+        let orderTotal = 0;
+        orderItems.forEach((item) => {
+          orderTotal += item.price;
+        });
         console.log(firebaseKey);
         const payload = {
           firebaseKey,
           paymentType: document.querySelector('#dropdown-menu').value,
+          totalOrderAmount: orderTotal,
           tipAmount: document.querySelector('#tipAmount').value,
           open: false,
         };

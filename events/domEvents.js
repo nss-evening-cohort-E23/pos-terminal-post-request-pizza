@@ -50,7 +50,7 @@ const domEvents = (user) => {
         const [, firebaseKey] = e.target.id.split('--');
 
         getSingleOrder(firebaseKey).then((orderObj) =>
-          addOrderForm(orderObj, user)
+          addOrderForm(orderObj)
         );
       }
 
