@@ -28,13 +28,13 @@ const showOrderDetails = async (orderFirebaseKey) => {
     });
     domString += `
     <button id="add-item-btn--${orderFirebaseKey}">Add an item to order</button>
-    <button id="to-payment-btn">Go to payment</button>
+    <button id="to-payment-btn--${orderFirebaseKey}">Go to payment</button>
     `;
   } else {
     domString = `
     <h2 class="order-details-total">No items in order</h2>
     <button id="add-item-btn--${orderFirebaseKey}">Add an item to order</button>
-    <button id="to-payment-btn">Go to payment</button>
+    <button id="to-payment-btn--${orderFirebaseKey}">Go to payment</button>
     `;
   }
   renderToDom('#order-details', domString);

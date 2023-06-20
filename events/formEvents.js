@@ -3,38 +3,27 @@ import { createOrder, getAllOrders, updateOrder } from '../api/orderData';
 import { showOrders } from '../pages/orderCards';
 import showOrderDetails from '../pages/orderDetails';
 
-const formEvents = () => {
+const formEvents = (user) => {
   document
     .querySelector('#main-container')
     .addEventListener('click', async (e) => {
-      // if (e.target.id.includes('add-new-item')) {
-      //   if (document.querySelector('#add-new-item').checked !== true) {
-      //   }
-      // }
-
-      // FOR SUBMITTING ORDER FORM
       if (e.target.id.includes('submit-order')) {
+        e.preventDefault();
         const dateSubmit = new Date();
         const date_submitted = dateSubmit.toLocaleString();
         const payload = {
-          orderName: document.querySelector('#order-name').value,
+          orderName: document.querySelector('#order_name').value,
           customerPhone: document.querySelector('#phone').value,
           customerEmail: document.querySelector('#email').value,
-          orderType: document.querySelector('#type-input').value,
+          orderType: document.querySelector('#type_input').value,
+          open: true,
           date: date_submitted,
           uid: user.uid,
         };
-
-        createOrder(payload).then(({ name }) => {
-          const patchPayload = { firebaseKey: name };
-
-          updateOrder(patchPayload).then(() => {
-            getAllOrders(user.uid).then(showOrders);
-          });
-        });
+        await createOrder(payload);
+        getAllOrders(user.uid).then(showOrders);
       }
 
-      // FOR EDITING ORDER
       if (e.target.id.includes('update-word')) {
         const [, firebaseKey] = e.target.id.split('--');
         const payload = {
@@ -108,7 +97,6 @@ const formEvents = () => {
 
       //FOR UPDATING AN ITEM
       if (e.target.id.includes('update-item-btn')) {
-        e.preventDefault();
         const radioItem = await getSingleItem(
           document.querySelector('input[name="type"]:checked').value
         );
@@ -152,6 +140,22 @@ const formEvents = () => {
           await createItem(newItemForRadio);
           await showOrderDetails(payload.orderFBKey);
         }
+      }
+      // end of formEvents
+      // Close Order Button
+      if (e.target.id.includes('close-order-btn')) {
+        const [, firebaseKey] = e.target.id.split('--');
+        console.log(firebaseKey);
+        const payload = {
+          firebaseKey,
+          paymentType: document.querySelector('#dropdown-menu').value,
+          tipAmount: document.querySelector('#tipAmount').value,
+          open: false,
+        };
+
+        updateOrder(payload).then(() => {
+          getAllOrders(user.uid).then(showOrders);
+        });
       }
       // end of formEvents
     });

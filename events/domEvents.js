@@ -6,8 +6,11 @@ import {
 import { deleteOrder, getAllOrders, getSingleOrder } from '../api/orderData';
 import addItemForm from '../components/addItemForm';
 import addOrderForm from '../components/addOrderForm';
+import closeOrderForm from '../components/closeOrderForm';
 import { showOrders } from '../pages/orderCards';
 import showOrderDetails from '../pages/orderDetails';
+import clearDom from '../utils/clearDom';
+import showRevenueOrders from '../pages/revenue';
 
 const domEvents = (user) => {
   document
@@ -32,8 +35,13 @@ const domEvents = (user) => {
       if (e.target.id.includes('create-order')) {
         addOrderForm({});
       }
+      // SHOW FORM FOR ADDING A CARD
+      if (e.target.id.includes('create-order-landing')) {
+        console.warn('click');
+        addOrderForm({}, user);
+      }
 
-      if (e.target.id.includes('view-orders')) {
+      if (e.target.id.includes('view-order')) {
         getAllOrders(user.uid).then((orders) => showOrders(orders));
       }
 
@@ -46,8 +54,14 @@ const domEvents = (user) => {
         );
       }
 
+      // //TODO: ClICK EVENT FOR ORDER DETAILS
+      // if (e.target.id.includes('view-order-details')) {
+      //   const [, firebaseKey] = e.target.id.split('--');
+      //   getOrderDetails(firebaseKey).then(viewOrders);
+      // }
+
       //FOR SHOWING DETAILS OF CARD
-      if (e.target.id.includes('view-details')) {
+      if (e.target.id.includes('order-details')) {
         const [, firebaseKey] = e.target.id.split('--');
         console.log(firebaseKey);
         await showOrderDetails(firebaseKey);
@@ -74,6 +88,19 @@ const domEvents = (user) => {
         let orderFBKey = item.orderFBKey;
         await deleteItem(firebaseKey);
         await showOrderDetails(orderFBKey);
+      }
+
+      if (e.target.id.includes('to-payment-btn')) {
+        const [, firebaseKey] = e.target.id.split('--');
+        let order = await getSingleOrder(firebaseKey);
+        closeOrderForm(order);
+      }
+
+      // VIEW REVENUE PAGE
+      if (e.target.id.includes('view-revenue')) {
+        // console.warn(e.target, 'VIEW REVENUE BUTTON CLICKED');
+        clearDom();
+        showRevenueOrders(user);
       }
 
       // END OF domEvents

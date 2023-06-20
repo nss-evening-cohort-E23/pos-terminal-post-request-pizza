@@ -1,5 +1,5 @@
-import clearDom from "../utils/clearDom";
-import firebase from "firebase/app";
+import clearDom from '../utils/clearDom';
+import firebase from 'firebase/app';
 
 const landingPage = () => {
   clearDom();

@@ -19,14 +19,16 @@ const loginPage = () => {
         width: 400px;
         height: auto;
         margin-bottom: 20px;
+        border-radius: 50%;
        }
+       
     </style>
  
     <div id="logo">
       <img src="https://i.imgur.com/XgjPbNB.png" alt="">
     </div>
     <div id="login-btn">
-      <button id="google-auth" class="btn btn-success">Login to Get Started</button>
+    <button id="google-auth" class="btn btn-primary" style="background-color: #6e2613; border-color: #4d1e12;">Login to Get Started</button>
     </div>
  `;
      document.querySelector('#landing-page').innerHTML = domString;

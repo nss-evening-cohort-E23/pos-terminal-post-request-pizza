@@ -1,0 +1,51 @@
+{
+  "-NXrcB3uE2rma4lJdHtc": {
+      "firebaseKey": "NXrcB3uE2rma4lJdHtc",
+      "name": "Cheese Pizza",
+      "orderIdFBKey": "",
+      "price": "15",
+      "type": "entree"
+  },
+  "-NXrcUkbbRW5wr3QNkqy": {
+      "firebaseKey": "-NXrcUkbbRW5wr3QNkqy",
+      "name": "Meatball Pizza",
+      "orderIdFBKey": "",
+      "price": "18",
+      "type": "entree"
+  },
+  "-NXrdZYKOoEfHSRHxd3V": {
+      "firebaseKey": "-NXrdZYKOoEfHSRHxd3V",
+      "name": "Cinna-Stix",
+      "orderIdFBKey": "",
+      "price": "7",
+      "type": "dessert"
+  },
+  "-NXrgYTAHYLKuylABta": {
+      "firebaseKey": "",
+      "name": "Coke",
+      "orderIdFBKey": "NXrgYTAHYLKuylABta",
+      "price": "3",
+      "type": "beverage"
+  },
+  "-NXrgfi4nEjqrJmkiYmP": {
+      "firebaseKey": "-NXrgfi4nEjqrJmkiYmP",
+      "name": "Garlic Cheese Bread",
+      "orderIdFBKey": "",
+      "price": "10",
+      "type": "appetizer"
+  },
+  "-NXrjejh8ZQNwaQha4Cl": {
+      "firebaseKey": "-NXrjejh8ZQNwaQha4Cl",
+      "name": "Mike's Hard Lemonade",
+      "orderIdFBKey": "",
+      "price": "6",
+      "type": "beverage"
+  },
+  "-NXrjyHEc6827sgm4FX": {
+      "firebaseKey": "-NXrjyHEc6827sgm4FX",
+      "name": "Cookie Skillet",
+      "orderIdFBKey": "",
+      "price": "12",
+      "type": "dessert"
+  }
+}
