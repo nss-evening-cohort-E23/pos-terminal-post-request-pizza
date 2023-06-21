@@ -24,7 +24,8 @@ const domEvents = (user) => {
         ) {
           console.warn('CLICKED DELETE', e.target.id);
           const [, firebaseKey] = e.target.id.split('--');
-
+          let orderItems = await getItemsByOrderFBKey(firebaseKey);
+          orderItems.forEach( async (item) => { await deleteItem(item.firebaseKey)})
           deleteOrder(firebaseKey).then(() => {
             getAllOrders().then(showOrders);
           });
