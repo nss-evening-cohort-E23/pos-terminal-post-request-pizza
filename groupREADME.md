@@ -25,6 +25,6 @@ This app was built around a pizza shop's owners user story and acceptance criter
 
 ## Contributors
 - [Matthew Maloney](https://github.com/mgmaloney)
-- [Kyle Bur](https://github.com/JyleBur)
+- [Kyle Berry](https://github.com/JyleBur)
 - [Emily Drew](https://github.com/EmilyLemonyDrewL)
 - [David Poole](https://github.com/DavidBPoole)
