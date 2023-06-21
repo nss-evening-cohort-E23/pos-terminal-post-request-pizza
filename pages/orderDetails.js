@@ -8,6 +8,7 @@ const showOrderDetails = async (orderFirebaseKey) => {
   let orderItems = await getItemsByOrderFBKey(orderFirebaseKey);
   let orderTotal = 0;
   let domString = '';
+  let order = await getSingleOrder(orderFirebaseKey);
   orderItems.forEach((item) => {
     orderTotal += item.price;
   });
@@ -21,20 +22,18 @@ const showOrderDetails = async (orderFirebaseKey) => {
           <div class="card-body">
             <h5 class="card-title item-card-name">${item.name}</h5>
             <p class="card-text item-card-price">Price: $${item.price}</p>
-            <button class="btn btn-secondary" id="edit-item-btn--${item.firebaseKey}">Edit Item</button>
-            <button class="btn btn-secondary" id="delete-item-btn--${item.firebaseKey}">Delete Item</button>
-          </div>
+            ${order.open ? `<button class="btn btn-secondary" id="edit-item-btn--${item.firebaseKey}">Edit Item</button><button class="btn btn-secondary" id="delete-item-btn--${item.firebaseKey}">Delete Item</button>`:''}
+            </div>
         </div>
         `;
     });
-    let order = await getSingleOrder(orderFirebaseKey);
     if (order.open === true) {
     domString += `
     <button id="add-item-btn--${orderFirebaseKey}">Add an item to order</button>
     <button id="to-payment-btn--${orderFirebaseKey}">Go to payment</button>
     `;
     } else {
-      domString += `<h2>Order has been closed.</h2>`
+      domString += `<h2>Order Closed</h2>`
     }
   } else {
     domString = `

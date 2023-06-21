@@ -17,7 +17,7 @@ const showRevenueOrders = (orders) => {
         sumTotalRevenue += order.totalOrderAmount;
       }
     })
-    return sumTotalRevenue;
+    return sumTotalRevenue.toFixed(2);
   }
 
   const totalTips = () => {
@@ -27,7 +27,7 @@ const showRevenueOrders = (orders) => {
         sumTotalTips += order.tipAmount;
       }
     })
-    return sumTotalTips;
+    return sumTotalTips.toFixed(2);
 
   }
   

@@ -2,6 +2,7 @@ import { getAllOrders } from "../api/orderData";
 import { showOrders } from "../pages/orderCards";
 import { signOut } from "../utils/auth";
 import addOrderForm from "../components/addOrderForm";
+import landingPage from "../pages/landing-page";
 // import showRevenueOrders from "../pages/revenue";
 // import clearDom from '../utils/clearDom';
 
@@ -9,6 +10,12 @@ import addOrderForm from "../components/addOrderForm";
 
 const navigationEvents = (user) => {
   document.querySelector('#navigation').addEventListener('click', (e) => {
+  // LOGO HOME BUTTON
+  if (e.target.id.includes('navLogo')) {
+    landingPage();
+    console.warn('navLogo');
+  }
+
   // LOGOUT BUTTON
   if (e.target.id.includes('logout-button')) {
     signOut();
