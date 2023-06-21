@@ -8,11 +8,10 @@ const emptyRevenue = () => {
   renderToDom('#revenue', domString);
 };
 
-const showRevenueOrders = () => {
+const showRevenueOrders = (orders) => {
 
-  const totalRevenue = async () => {
+  const totalRevenue = () => {
     let sumTotalRevenue = 0;
-    let orders = await getAllOrders();
     orders.forEach((order) => {
       if (order.open === false) {
         sumTotalRevenue += order.totalOrderAmount;
@@ -21,9 +20,8 @@ const showRevenueOrders = () => {
     return sumTotalRevenue;
   }
 
-  const totalTips = async () => {
+  const totalTips = () => {
     let sumTotalTips = 0;
-    let orders = await getAllOrders();
     orders.forEach((order) => {
       if (order.open === false) {
         sumTotalTips += order.tipAmount;
@@ -33,82 +31,79 @@ const showRevenueOrders = () => {
 
   }
   
-  const sumCallInOrders = async () => {
+  const sumCallInOrders = () => {
     let callInOrders = 0;
-    let orders = await getAllOrders();
     orders.forEach((order) => {
-      if (order.orderType === 'Call-In') {
+      if (order.orderType === 'Call-In' && (order.open === false)) {
         callInOrders++;
       }
     });
     return callInOrders;
   };
 
-  const sumWalkInOrders = async () => {
+  const sumWalkInOrders = () => {
     let walkInOrders = 0;
-    let orders = await getAllOrders();
     orders.forEach((order) => {
-      if (order.orderType === 'Walk-In') {
+      if (order.orderType === 'Walk-In' && (order.open === false)) {
         walkInOrders++;
       }
     });
     return walkInOrders;
   }
 
-  const cashPayments = async () => {
+  const cashPayments = () => {
     let cashPMT = 0;
-    let orders = await getAllOrders();
     orders.forEach((order) => {
-      if (order.paymentType === 'Cash') {
+      if (order.paymentType === 'Cash' && (order.open === false)) {
         cashPMT++;
       }
     });
     return cashPMT;
   }
 
-  const creditPayments = async () => {
+  const creditPayments = () => {
     let creditPMT = 0;
-    let orders = await getAllOrders();
     orders.forEach((order) => {
-      if (order.paymentType === 'Credit') {
+      if (order.paymentType === 'Credit' && (order.open === false)) {
         creditPMT++;
       }
     });
     return creditPMT;
   }
 
-  const mobilePayments = async () => {
+  const mobilePayments = () => {
     let mobilePMT = 0;
-    let orders = await getAllOrders();
     orders.forEach((order) => {
-      if (order.paymentType === 'Mobile') {
+      if (order.paymentType === 'Mobile' && (order.open === false)) {
         mobilePMT++;
       }
     });
     return mobilePMT;
   }
 
-const revenue = async () => {
+const revenue = () => {
   let domString = `
         <h1 id="revenueTitle">REVENUE</h1>
         <hr>
-        <h2 id="totalRevenueTitle">TOTAL REVENUE: $${await totalRevenue()}</h2>
+        <h2 id="totalRevenueTitle">TOTAL REVENUE: $${totalRevenue()}</h2>
         &nbsp;
-        <h5>Total Tips: $${await totalTips()}</h5>
-        <p>Total Call-In Orders: ${await sumCallInOrders()}</p>
-        <p>Total Walk-In Orders: ${await sumWalkInOrders()}</p>
+        <h5>Total Tips: $${totalTips()}</h5>
+        <p>Total Call-In Orders: ${sumCallInOrders()}</p>
+        <p>Total Walk-In Orders: ${sumWalkInOrders()}</p>
         <hr>
         <h4>Payment Types:</h4>
-        <p>Cash - ${await cashPayments()}</p>
-        <p>Credit - ${await creditPayments()}</p>
-        <p>Mobile - ${await mobilePayments()}</p>
+        <p>Cash - ${cashPayments()}</p>
+        <p>Credit - ${creditPayments()}</p>
+        <p>Mobile - ${mobilePayments()}</p>
         <hr>
   `;
   renderToDom('#revenue', domString);
- };
+ } 
+ if (orders) {
  revenue();
- 
-};
+} else {
+  emptyRevenue();
+}}
 
 export default showRevenueOrders;
 export { emptyRevenue };

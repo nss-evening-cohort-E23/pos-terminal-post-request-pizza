@@ -9,8 +9,9 @@ const closeOrderForm = (obj) => {
     <h2 id="dropdown-label">Payment Type: </h2>
     <select id="dropdown-menu" aria-labelledby="dropDownMenu">
       <label for="dropdown-menu">Payment Type:</label>
-      <option id="dropdown-item" value="Credit Card">Credit Card</option>
+      <option id="dropdown-item" value="Credit">Credit Card</option>
       <option id="dropdown-item" value="Cash">Cash</button>
+      <option id="dropdown-item" value="Mobile">Mobile</button>
     </select>
   </div>
 

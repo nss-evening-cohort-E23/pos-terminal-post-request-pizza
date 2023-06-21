@@ -147,7 +147,7 @@ const formEvents = (user) => {
           await showOrderDetails(payload.orderFBKey);
         }
       }
-      // end of formEvents
+      // END of formEvents
       // Close Order Button
       if (e.target.id.includes('close-order-btn')) {
         const [, firebaseKey] = e.target.id.split('--');
@@ -161,7 +161,7 @@ const formEvents = (user) => {
           firebaseKey,
           paymentType: document.querySelector('#dropdown-menu').value,
           totalOrderAmount: orderTotal,
-          tipAmount: document.querySelector('#tipAmount').value,
+          tipAmount: Number(document.querySelector('#tipAmount').value),
           open: false,
         };
 

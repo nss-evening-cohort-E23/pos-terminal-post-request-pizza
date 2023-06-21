@@ -1,4 +1,5 @@
 import { getItemsByOrderFBKey } from '../api/itemData';
+import { getSingleOrder } from '../api/orderData';
 import clearDom from '../utils/clearDom';
 import renderToDom from '../utils/renderToDom';
 
@@ -26,10 +27,15 @@ const showOrderDetails = async (orderFirebaseKey) => {
         </div>
         `;
     });
+    let order = await getSingleOrder(orderFirebaseKey);
+    if (order.open === true) {
     domString += `
     <button id="add-item-btn--${orderFirebaseKey}">Add an item to order</button>
     <button id="to-payment-btn--${orderFirebaseKey}">Go to payment</button>
     `;
+    } else {
+      domString += `<h2>Order has been closed.</h2>`
+    }
   } else {
     domString = `
     <h2 class="order-details-total">No items in order</h2>
