@@ -98,9 +98,10 @@ const domEvents = (user) => {
 
       // VIEW REVENUE PAGE
       if (e.target.id.includes('view-revenue')) {
+        let orders = await getAllOrders();
         // console.warn(e.target, 'VIEW REVENUE BUTTON CLICKED');
         clearDom();
-        showRevenueOrders(user);
+        showRevenueOrders(orders);
       }
 
       // END OF domEvents

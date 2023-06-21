@@ -12,6 +12,7 @@ const showOrders = (array) => {
   clearDom();
 
   let domString = '';
+  if (array) {
   array.forEach((order) => {
     domString += `
     <div class="card" id="orderClosedCards">
@@ -35,7 +36,9 @@ const showOrders = (array) => {
       </div>
   </div>`;
   });
-
+} else {
+  domString += '<h1>No current orders</h1>';
+}
   renderToDom('#view-orders', domString);
 };
 

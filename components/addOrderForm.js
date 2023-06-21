@@ -23,7 +23,7 @@ const addOrderForm = (obj = {}) => {
       </div>
       <div class="form-group  fs-3 mx-auto w-50" id="select-type">
       <select class="form-select" id="type_input" aria-label="Default select example" required>
-      <option selected>Choose a Category</option>
+      <label for="type_input">Choose a Category</label>
       <option value="Walk-In">Walk-In</option>
       <option value="Call-In">Call-In</option>
       </select>
