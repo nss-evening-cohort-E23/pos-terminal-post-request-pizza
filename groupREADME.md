@@ -1,4 +1,4 @@
-# POINT OF SALE PROJECT "POST-REQUEST-PIZZA"  [![Netlify Status]([![Netlify Status](https://api.netlify.com/api/v1/badges/b9c17fe4-f796-4880-996f-ae387b4ba39e/deploy-status)](https://app.netlify.com/sites/post-request-pizza/deploys))]
+# POINT OF SALE PROJECT "POST-REQUEST-PIZZA"  [![Netlify Status](https://api.netlify.com/api/v1/badges/b9c17fe4-f796-4880-996f-ae387b4ba39e/deploy-status)](https://app.netlify.com/sites/post-request-pizza/deploys)
 
 # OVERVIEW
 This app was built around a pizza shop's owners user story and acceptance criteria for modernizing their business's point of sale terminals to streamline and automate their order taking and tracking process.
@@ -21,7 +21,7 @@ This app was built around a pizza shop's owners user story and acceptance criter
 - [Wireframes](#https://www.figma.com/file/4y3EZddALuBR3ouSEM57Np/MVP?type=design&node-id=0-1&t=R4FOoHkkx9vaaB9t-0)
 
 ## Project Screenshots 
-<img width="1148" alt="Your Alt" src="your-link.png">
+
 
 ## Contributors
 - [Matthew Maloney](https://github.com/mgmaloney)
