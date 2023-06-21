@@ -3,7 +3,7 @@
 # OVERVIEW
 This app was built around a pizza shop's owners user story and acceptance criteria for modernizing their business's point of sale terminals to streamline and automate their order taking and tracking process.
 
-[View App](#https://post-request-pizza.netlify.app/)
+[View App](https://post-request-pizza.netlify.app/)
 
 ## About the User 
 - The ideal user for this application is a restaurant owner.
@@ -17,8 +17,8 @@ This app was built around a pizza shop's owners user story and acceptance criter
 - Closed Total Order Tracking Metrics
 
 ## Relevant Links 
-- [Check out the deployed site](#your-link)
-- [Wireframes](#https://www.figma.com/file/4y3EZddALuBR3ouSEM57Np/MVP?type=design&node-id=0-1&t=R4FOoHkkx9vaaB9t-0)
+- [Check out the deployed site](https://post-request-pizza.netlify.app)
+- [Wireframes](https://www.figma.com/file/4y3EZddALuBR3ouSEM57Np/MVP?type=design&node-id=0-1&t=R4FOoHkkx9vaaB9t-0)
 
 ## Project Screenshots 
 
