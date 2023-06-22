@@ -26,13 +26,13 @@ const showOrders = (array) => {
       <div id="card-buttons">
       <button id="order-details--${
         order.firebaseKey
-      }" class="btn btn-success fs-4">Details</button>
+      }" class="btn btn-warning fs-4">Details</button>
       <button id="edit-order--${
         order.firebaseKey
-      }" class="btn btn-success fs-4">Edit Order</button>
+      }" class="btn btn-warning fs-4">Edit Order</button>
       <button id="delete-order--${
         order.firebaseKey
-      }" class="btn btn-success fs-4">Delete</button>
+      }" class="btn btn-warning fs-4">Delete</button>
       </div>
   </div>`;
   });

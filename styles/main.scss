@@ -1,12 +1,76 @@
 @import "~@fortawesome/fontawesome-free/css/all.min.css";
 @import "~bootstrap/scss/bootstrap";
 
+#welcomeMessage {
+  margin-top: 15%;
+  color: rgba(243, 218, 188, 0.921)
+}
+
+#navTitle {
+  color:rgba(243, 218, 188, 0.921)
+}
+
+#search {
+  max-width: 100%;
+}
 
 body {
-  background-color: gray;
+  background-color: black;
   color: brown;
   text-align: center;
   margin-top: 100px;
+}
+
+.btn-primary {
+  background-color: rgb(103, 59, 59);
+  color: rgba(255, 255, 255, 0.737);
+  margin-top: 5%
+}
+
+.btn-warning {
+  background-color: rgb(103, 59, 59);
+  color: rgba(255, 255, 255, 0.737);
+  margin-top: 2%;
+  margin-bottom: 5%;
+  width: 10rem
+}
+
+.card {
+  display: block;
+  margin-top: 10%;
+  margin-left: 25%;
+  max-width: 50%;
+  background-color: black;
+  color: rgba(226, 210, 170, 0.934);
+  border-color: rgba(255, 255, 255, 0.737)
+}
+
+.card-body {
+  margin-top: 15%;
+  margin: 5%;
+}
+
+#orderName {
+  color: rgba(226, 210, 170, 0.934);
+  margin-top: 10%
+}
+
+#phoneNumber {
+  color: rgba(226, 210, 170, 0.934);
+  margin-top: 3%
+}
+
+#email {
+  color: rgba(226, 210, 170, 0.934);
+  margin-top: 3%
+}
+
+#orderInputType {
+  color: rgba(226, 210, 170, 0.934);
+}
+
+#select-type {
+  margin-top: 3%
 }
 
 #revenue {
@@ -18,4 +82,8 @@ body {
   font-weight: bold;
   font-size: 100%;
   margin-top: 15%;
+}
+
+#revenueContainer {
+  color: rgba(243, 218, 188, 0.921)
 }

@@ -24,11 +24,11 @@ const landingPage = () => {
         margin-top: 5px
       }
     </style>
-    <h1>Welcome, ${user.displayName}!</h1>
+    <h1 id="welcomeMessage">Welcome, ${user.displayName}!</h1>
 
     <div class="landing-page-btn">
-      <button class="btn btn-success" id="view-orders">View Orders</button>
-      <button class="btn btn-primary" id="create-order">Create an Order</button>
+      <button class="btn btn-warning" id="view-orders">View Orders</button>
+      <button class="btn btn-warning" id="create-order">Create an Order</button>
       <button class="btn btn-warning" id="view-revenue">View Revenue</button>
     </div>
    </div>
