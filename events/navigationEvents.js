@@ -34,6 +34,11 @@ const navigationEvents = (user) => {
   })
   // END OF navigationEvents
 }
+
+export default navigationEvents
+
+// BELOW CONTAINS ATTEMPTS TO CREATE A REVENUE PAGE LINK IN THE NAVBAR AND CREATE A SEARCH BAR TARGETING ORDER NAME AND PHONE #
+
 // ATTEMPT TO HOOK UP REVENUE LINK IN NAVBAR BELOW:
 // const revenueNavEvent = (user) => {
 //   document
@@ -50,21 +55,20 @@ const navigationEvents = (user) => {
 //   }
 
 // SEARCH BAR EVENT
-const searchEvent = (user) => {
-  document.querySelector('#searchBar').addEventListener('hover', (e) => {
-  // SEARCH BAR
-  const search = (event) => {
-    const lowerCase = event.target.value.toLowerCase();
-    getAllOrders(user.uid).then((data) => {
-      const searchOrders = Object.values(data).filter((item) => item.orderName.toLowerCase().includes(lowerCase));
-      return searchOrders;
-    }).then(showOrders);
-  };
-  document.querySelector('#searchBar').addEventListener('keyup', search);
+// const searchEvent = (user) => {
+//   document.querySelector('#searchBar').addEventListener('hover', (e) => {
+//   // SEARCH BAR
+//   const search = (event) => {
+//     const lowerCase = event.target.value.toLowerCase();
+//     getAllOrders(user.uid).then((data) => {
+//       const searchOrders = Object.values(data).filter((item) => item.orderName.toLowerCase().includes(lowerCase));
+//       return searchOrders;
+//     }).then(showOrders);
+//   };
+//   document.querySelector('#searchBar').addEventListener('keyup', search);
 
-  })
-}
-export default navigationEvents
+//   })
+// }
 
 // ATTEMPT TO HOOK UP REVENUE NAVBAR EVENT BELOW:
 // export {

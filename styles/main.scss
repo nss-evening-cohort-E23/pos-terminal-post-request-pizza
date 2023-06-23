@@ -3,7 +3,8 @@
 
 #welcomeMessage {
   margin-top: 15%;
-  color: rgba(243, 218, 188, 0.921)
+  color: rgba(243, 218, 188, 0.921);
+  font-size: 3rem
 }
 
 #navTitle {
@@ -60,9 +61,20 @@ body {
   margin-top: 3%
 }
 
-#email {
+.form-group {
   color: rgba(226, 210, 170, 0.934);
   margin-top: 3%
+}
+
+.order-details-total {
+  color: rgba(226, 210, 170, 0.934);
+  margin-top: 10%;
+  font-size: 3rem
+}
+
+#orderClosed {
+  font-weight: bold;
+  font-size: 3rem
 }
 
 #orderInputType {

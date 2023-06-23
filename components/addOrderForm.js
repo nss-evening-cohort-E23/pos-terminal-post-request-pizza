@@ -18,7 +18,7 @@ const addOrderForm = (obj = {}) => {
         <input type="number" class="form-control" id="phone" placeholder="Enter phone number" required>
       </div>
       <div class="form-group fs-3 mx-auto w-50">
-        <label for="email" id="email">Email:</label>
+        <label for="email">Email:</label>
         <input type="email" class="form-control" id="email" placeholder="Enter email" required>
       </div>
         <div class="form-group  fs-3 mx-auto w-50" id="select-type"> <label for="type_input" id="orderInputType">Order Type:</label>
