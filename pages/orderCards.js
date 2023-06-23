@@ -37,7 +37,7 @@ const showOrders = (array) => {
   </div>`;
   });
 } else {
-  domString += '<h1>No current orders</h1>';
+  domString += '<h1 style="margin-top: 10%";>No Orders</h1>';
 }
   renderToDom('#view-orders', domString);
 };

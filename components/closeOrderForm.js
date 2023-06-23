@@ -15,12 +15,12 @@ const closeOrderForm = (obj) => {
     </select>
   </div>
 
-    <div class="form-group mt-3">
-      <label for="tipAmount">Tip Amount:</label>
-      <input type="text" class="form-control" id="tipAmount" placeholder="Enter tip amount" required>
+    <div class="form-group mt-3" id="close-order-form">
+      <label for="tipAmount">Tip Amount:&nbsp;</label>
+      &nbsp;
+      <input type="text" class="form-control" id="tipAmount" style="width: 10rem;" placeholder="Enter Tip Amount" required>
     </div>
-
-    <button id="close-order-btn--${obj.firebaseKey}" class="btn btn-success btn-lg">Close Orders</button>
+    <button id="close-order-btn--${obj.firebaseKey}" class="btn btn-warning btn-lg">Close Order</button>
   </div>
     `;
 

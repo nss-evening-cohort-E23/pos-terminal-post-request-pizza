@@ -17,7 +17,8 @@
 
 body {
   background-color: black;
-  color: brown;
+  // COLOR BELOW AFFECTS MENU ITEM COLORS
+  color: rgba(243, 218, 188, 0.921);
   text-align: center;
   margin-top: 100px;
 }
@@ -51,6 +52,10 @@ body {
   margin: 5%;
 }
 
+#noOrders {
+  margin-top: 20%;
+}
+
 #orderName {
   color: rgba(226, 210, 170, 0.934);
   margin-top: 10%
@@ -69,12 +74,26 @@ body {
 .order-details-total {
   color: rgba(226, 210, 170, 0.934);
   margin-top: 10%;
-  font-size: 3rem
+  font-size: 2.5rem
 }
 
+.form-header {
+  color: rgba(226, 210, 170, 0.934);
+  margin-top: 15%;
+  margin-bottom: 3%;
+}
+
+// THIS AFFECTS SPACING ON THE CREATE NEW MENU ITEM RADIO BUTTON CONTAINER
+#add-new-item {
+  margin-top: 4%
+}
+
+// THIS AFFECTS STYLING OF THE ORDER CLOSED ALERT BELOW CLOSED ORDERS
 #orderClosed {
   font-weight: bold;
-  font-size: 3rem
+  font-size: 3rem;
+  margin-top: 3%;
+  color: rgb(188, 46, 46)
 }
 
 #orderInputType {
@@ -83,6 +102,15 @@ body {
 
 #select-type {
   margin-top: 3%
+}
+
+.close-orders {
+  margin-top: 10%;
+}
+
+#close-order-form {
+  display: flex;
+  justify-content: center;
 }
 
 #revenue {
