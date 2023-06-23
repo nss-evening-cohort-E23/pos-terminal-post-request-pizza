@@ -1,7 +1,7 @@
 <div style="text-align:center">
 <h1>Post Request Pizza</h1>
 
-<image src="https://i.imgur.com/XgjPbNB.png" alt="pizza sign" style="height:150%; border-radius: 50%"></image></div>
+<image src="https://i.imgur.com/XgjPbNB.png" alt="pizza sign" style="border-radius: 50%"></image></div>
 # POINT OF SALE PROJECT "POST-REQUEST-PIZZA"  [![Netlify Status](https://api.netlify.com/api/v1/badges/b9c17fe4-f796-4880-996f-ae387b4ba39e/deploy-status)](https://app.netlify.com/sites/post-request-pizza/deploys)
 
 # OVERVIEW
