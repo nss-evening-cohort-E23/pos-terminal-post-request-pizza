@@ -11,15 +11,21 @@ const addOrderForm = (obj = {}) => {
     }"class="mb-4">
      <div class="form-group fs-3 mx-auto w-50">
         <label for="order_name" id="orderName">Order Name:</label>
-        <input type="text" class="form-control" id="order_name" placeholder="Enter first name" required>
+        <input type="text" class="form-control" id="order_name" placeholder="Enter first name" required value="${
+          obj.orderName || ''
+        }">
       </div>
       <div class="form-group fs-3 mx-auto w-50">
         <label for="phone" id="phoneNumber">Phone Number:</label>
-        <input type="number" class="form-control" id="phone" placeholder="Enter phone number" required>
+        <input type="number" class="form-control" id="phone" placeholder="Enter phone number" value="${
+          obj.customerPhone || ''
+        }"required>
       </div>
       <div class="form-group fs-3 mx-auto w-50">
         <label for="email">Email:</label>
-        <input type="email" class="form-control" id="email" placeholder="Enter email" required>
+        <input type="email" class="form-control" id="email" placeholder="Enter email" value="${
+          obj.customerEmail || ''
+        }" required>
       </div>
         <div class="form-group  fs-3 mx-auto w-50" id="select-type"> <label for="type_input" id="orderInputType">Order Type:</label>
         <select class="form-select" id="type_input" aria-label="Default select example" required>

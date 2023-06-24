@@ -14,7 +14,7 @@ const showOrderDetails = async (orderFirebaseKey) => {
   });
   if (orderItems.length > 0) {
     domString += `
-    <h2 class="order-details-total">Current Total: $${orderTotal}<h2>
+    <h2 class="order-details-total">Current Total: $${orderTotal.toFixed(2)}<h2>
     `;
     orderItems.forEach((item) => {
       domString += `
@@ -22,18 +22,22 @@ const showOrderDetails = async (orderFirebaseKey) => {
           <div class="card-body">
             <h5 class="card-title item-card-name">${item.name}</h5>
             <p class="card-text item-card-price">Price: $${item.price}</p>
-            ${order.open ? `<button class="btn btn-warning" style="margin-right: 3px; width: 7rem"; id="edit-item-btn--${item.firebaseKey}">Edit Item</button><button class="btn btn-warning" style="margin-left: 3px; width: 7rem"; id="delete-item-btn--${item.firebaseKey}">Delete Item</button>`:''}
+            ${
+              order.open
+                ? `<button class="btn btn-warning" style="margin-right: 3px; width: 7rem"; id="edit-item-btn--${item.firebaseKey}">Edit Item</button><button class="btn btn-warning" style="margin-left: 3px; width: 7rem"; id="delete-item-btn--${item.firebaseKey}">Delete Item</button>`
+                : ''
+            }
             </div>
         </div>
         `;
     });
     if (order.open === true) {
-    domString += `
+      domString += `
     <button class="btn btn-warning" id="add-item-btn--${orderFirebaseKey}">Add Item To Order</button>
     <button class="btn btn-warning" id="to-payment-btn--${orderFirebaseKey}">Go To Payment</button>
     `;
     } else {
-      domString += `<h2 id="orderClosed">Order Closed</h2>`
+      domString += `<h2 id="orderClosed">Order Closed</h2>`;
     }
   } else {
     domString = `

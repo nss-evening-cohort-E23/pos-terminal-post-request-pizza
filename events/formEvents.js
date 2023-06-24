@@ -103,6 +103,7 @@ const formEvents = (user) => {
 
       //FOR UPDATING AN ITEM
       if (e.target.id.includes('update-item-btn')) {
+        e.preventDefault();
         const radioItem = await getSingleItem(
           document.querySelector('input[name="type"]:checked').value
         );
