@@ -27,8 +27,10 @@ const addItemForm = async (orderItem = {}) => {
 
   radioItems.forEach((item) => {
     domString += `
-        <input type="radio" name="type" id="menu-items" id="${item.name}-radio" value="${item.firebaseKey}">
+      <div class="radio-div">
+        <input type="radio" name="type" class="menu-item" id="${item.name}-radio" value="${item.firebaseKey}">
         <label for="${item.name}-radio">${item.name}</label>
+      </div>
         `;
   });
   domString += `
