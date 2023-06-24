@@ -6,7 +6,7 @@ import landingPage from '../pages/landing-page';
 import showRevenueOrders from '../pages/revenue';
 import clearDom from '../utils/clearDom';
 
-const navigationEvents = (user) => {
+const navigationEvents = async (user) => {
   document.querySelector('#navigation').addEventListener('click', async (e) => {
     // LOGO HOME BUTTON
     if (e.target.id.includes('navLogo')) {
@@ -47,7 +47,7 @@ const navigationEvents = (user) => {
           order.customerEmail.toLowerCase().includes(searchTerm) ||
           order.orderType.toLowerCase().includes(searchTerm)
       );
-      showOrders(searched);
+      await showOrders(searched);
     }
   });
 };
