@@ -3,7 +3,7 @@ import { showOrders } from '../pages/orderCards';
 import { signOut } from '../utils/auth';
 import addOrderForm from '../components/addOrderForm';
 import landingPage from '../pages/landing-page';
-import showRevenueOrders from "../pages/revenue";
+import showRevenueOrders from '../pages/revenue';
 import clearDom from '../utils/clearDom';
 
 const navigationEvents = (user) => {
@@ -37,10 +37,22 @@ const navigationEvents = (user) => {
       clearDom();
       showRevenueOrders(orders);
     }
+    if (e.target.id.includes('search-btn')) {
+      let searchTerm = document.getElementById('search').value.toLowerCase();
+      let orders = await getAllOrders();
+      let searched = orders.filter(
+        (order) =>
+          order.orderName.toLowerCase().includes(searchTerm) ||
+          order.customerPhone.includes(searchTerm) ||
+          order.customerEmail.toLowerCase().includes(searchTerm) ||
+          order.orderType.toLowerCase().includes(searchTerm)
+      );
+      showOrders(searched);
+    }
   });
-
-  // END OF navigationEvents
 };
+
+// END OF navigationEvents;
 
 export default navigationEvents;
 
