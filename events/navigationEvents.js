@@ -1,41 +1,48 @@
-import { getAllOrders } from "../api/orderData";
-import { showOrders } from "../pages/orderCards";
-import { signOut } from "../utils/auth";
-import addOrderForm from "../components/addOrderForm";
-import landingPage from "../pages/landing-page";
-// import showRevenueOrders from "../pages/revenue";
-// import clearDom from '../utils/clearDom';
+import { getAllOrders } from '../api/orderData';
+import { showOrders } from '../pages/orderCards';
+import { signOut } from '../utils/auth';
+import addOrderForm from '../components/addOrderForm';
+import landingPage from '../pages/landing-page';
+import showRevenueOrders from "../pages/revenue";
+import clearDom from '../utils/clearDom';
 
 const navigationEvents = (user) => {
-  document.querySelector('#navigation').addEventListener('click', (e) => {
-  // LOGO HOME BUTTON
-  if (e.target.id.includes('navLogo')) {
-    landingPage();
-    console.warn('navLogo');
-  }
-  // NAVBAR HOME LINK
-  if (e.target.id.includes('navTitle')) {
-    landingPage();
-    console.warn('navTitle');
-  }
-  // LOGOUT BUTTON
-  if (e.target.id.includes('logout-button')) {
-    signOut();
-  }
-  // GET 'CREATE AN ORDER' FORM TO SHOW
-  if (e.target.id.includes('create-order-landing')) {
-    addOrderForm({});
-  }
-  // GET 'VIEW ORDERS' BUTTON TO WORK
-  if (e.target.id.includes('view-order')) {
-    getAllOrders(user).then(showOrders);
-  }
-  
-  })
-  // END OF navigationEvents
-}
+  document.querySelector('#navigation').addEventListener('click', async (e) => {
+    // LOGO HOME BUTTON
+    if (e.target.id.includes('navLogo')) {
+      landingPage();
+      console.warn('navLogo');
+    }
+    // NAVBAR HOME LINK
+    if (e.target.id.includes('navTitle')) {
+      landingPage();
+      console.warn('navTitle');
+    }
+    // LOGOUT BUTTON
+    if (e.target.id.includes('logout-button')) {
+      signOut();
+    }
+    // GET 'CREATE AN ORDER' FORM TO SHOW
+    if (e.target.id.includes('create-order-landing')) {
+      addOrderForm({});
+    }
+    // GET 'VIEW ORDERS' BUTTON TO WORK
+    if (e.target.id.includes('view-order')) {
+      getAllOrders(user).then(showOrders);
+    }
 
-export default navigationEvents
+    if (e.target.id.includes('view-nav-revenue')) {
+      let orders = await getAllOrders();
+      // console.warn(e.target, 'VIEW REVENUE BUTTON CLICKED');
+      clearDom();
+      showRevenueOrders(orders);
+    }
+  });
+
+  // END OF navigationEvents
+};
+
+export default navigationEvents;
 
 // BELOW CONTAINS ATTEMPTS TO CREATE A REVENUE PAGE LINK IN THE NAVBAR AND CREATE A SEARCH BAR TARGETING ORDER NAME AND PHONE #
 
