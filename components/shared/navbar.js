@@ -30,6 +30,9 @@ const navBar = () => {
             aria-label="Search"
           />
         </li>
+        <li>
+        <button id="search-btn" class="btn btn-primary">Search!</button>
+        </li>
         </ul>
         <span class="navbar-text">
             <div id="logout-button"></div>
@@ -44,12 +47,13 @@ const navBar = () => {
 
 export default navBar;
 
-
 // OLD SEARCH BAR HTML BELOW:
-{/* <form class="form-inline my-2 my-lg-0">
+{
+  /* <form class="form-inline my-2 my-lg-0">
           <input class="form-control mr-sm-2" id="searchBar" type="search" placeholder="Search by Name or Phone #" aria-label="Search">
           <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-          </form> */}
+          </form> */
+}
 
 // OLD NAVBAR
 // `<nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark mb-5">
