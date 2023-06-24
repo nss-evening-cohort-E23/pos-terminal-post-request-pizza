@@ -31,7 +31,7 @@ const navBar = () => {
           />
         </li>
         <li>
-        <button id="search-btn" class="btn btn-primary">Search!</button>
+        <button id="search-btn" class="btn btn-warning" style="margin-left: 3%">Search!</button>
         </li>
         </ul>
         <span class="navbar-text">
