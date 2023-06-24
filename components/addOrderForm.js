@@ -6,33 +6,32 @@ const addOrderForm = (obj = {}) => {
   clearDom();
   console.log(obj);
   const domString = `
-    <form id="${
+    <form class="addOrderText" id="${
       obj.firebaseKey ? `update-order--${obj.firebaseKey}` : 'submit-order'
     }"class="mb-4">
      <div class="form-group fs-3 mx-auto w-50">
-        <label for="order_name">Order Name:</label>
+        <label for="order_name" id="orderName">Order Name:</label>
         <input type="text" class="form-control" id="order_name" placeholder="Enter first name" required>
       </div>
       <div class="form-group fs-3 mx-auto w-50">
-        <label for="phone">Phone Number:</label>
+        <label for="phone" id="phoneNumber">Phone Number:</label>
         <input type="number" class="form-control" id="phone" placeholder="Enter phone number" required>
       </div>
       <div class="form-group fs-3 mx-auto w-50">
         <label for="email">Email:</label>
         <input type="email" class="form-control" id="email" placeholder="Enter email" required>
       </div>
-      <div class="form-group  fs-3 mx-auto w-50" id="select-type">
-      <select class="form-select" id="type_input" aria-label="Default select example" required>
-      <label for="type_input">Choose a Category</label>
-      <option value="Walk-In">Walk-In</option>
-      <option value="Call-In">Call-In</option>
-      </select>
+        <div class="form-group  fs-3 mx-auto w-50" id="select-type"> <label for="type_input" id="orderInputType">Order Type:</label>
+        <select class="form-select" id="type_input" aria-label="Default select example" required>
+        <option value="Walk-In">Walk-In</option>
+        <option value="Call-In">Call-In</option>
+        </select>
       </div>
       <button type="submit" id=${
         obj.firebaseKey
           ? `update-order-btn--${obj.firebaseKey}`
           : 'submit-order-btn'
-      } class="btn btn-primary">Submit
+      } class="btn btn-warning" id="addOrderSubmitBtn">Submit
       Order</button>
     </form>`;
 

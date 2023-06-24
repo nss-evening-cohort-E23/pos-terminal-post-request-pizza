@@ -13,7 +13,7 @@ const addItemForm = async (orderItem = {}) => {
   clearDom();
   let radioItems = await getItemsForRadios();
   let domString = `
-  <h2 class="form-header">Items!</h2>
+  <h2 class="form-header">Menu Items</h2>
   <form id="${orderItem.firebaseKey ? 'update-item-form' : 'add-item-form'}">
   `;
 
@@ -27,22 +27,28 @@ const addItemForm = async (orderItem = {}) => {
 
   radioItems.forEach((item) => {
     domString += `
-        <input type="radio" name="type" id="${item.name}-radio" value="${item.firebaseKey}">
+        <input type="radio" name="type" id="menu-items" id="${item.name}-radio" value="${item.firebaseKey}">
         <label for="${item.name}-radio">${item.name}</label>
         `;
   });
   domString += `
+      <div id="radioItemContainer">
+        <div for="create-new-item-field">
         <input type="radio" id="add-new-item" name="type" value="add-new-item"></input>
         <label for="add-new-item">Create New Item</label>
-        <label id="new-item-name-label" for="add-new-name" style="visibility: hidden">New Item Name: </label>  
+        </div>
+        <label id="new-item-name-label" for="add-new-name" style="visibility: hidden">New Item Name:&nbsp;</label>  
         <input type="text" id="new-item-name" value="" style="visibility: hidden"></input>
-        <label id="new-item-price-label" for="new-item-price" style="visibility: hidden">New Item Price: $</label>
+        <div for="input-fields">
+        <label id="new-item-price-label" for="new-item-price" style="visibility: hidden">New Item Price:$</label>
         <input type="number" id="new-item-price" style="visibility: hidden"></input>
-        <button type="submit" id="${
+        </div>
+        <button type="submit" class="btn btn-warning" id="${
           orderItem.firebaseKey
             ? `update-item-btn--${orderItem.firebaseKey}`
             : `submit-item-btn--${getOrderFBKeyForNewItems(orderItem)}`
         }">Add/Edit Item</button>
+      </div>
     </form>
     `;
   renderToDom('#form-container', domString);

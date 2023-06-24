@@ -1,6 +1,6 @@
 import clearDom from '../utils/clearDom';
 import renderToDom from '../utils/renderToDom';
-import { getAllOrders } from '../api/orderData';
+// import { getAllOrders } from '../api/orderData';
 
 
 const emptyRevenue = () => {
@@ -83,19 +83,20 @@ const showRevenueOrders = (orders) => {
 
 const revenue = () => {
   let domString = `
+      <div id="revenueContainer">
         <h1 id="revenueTitle">REVENUE</h1>
-        <hr>
+        &nbsp;
         <h2 id="totalRevenueTitle">TOTAL REVENUE: $${totalRevenue()}</h2>
         &nbsp;
         <h5>Total Tips: $${totalTips()}</h5>
         <p>Total Call-In Orders: ${sumCallInOrders()}</p>
         <p>Total Walk-In Orders: ${sumWalkInOrders()}</p>
-        <hr>
+        &nbsp;
         <h4>Payment Types:</h4>
         <p>Cash - ${cashPayments()}</p>
         <p>Credit - ${creditPayments()}</p>
         <p>Mobile - ${mobilePayments()}</p>
-        <hr>
+      </div>
   `;
   renderToDom('#revenue', domString);
  } 
