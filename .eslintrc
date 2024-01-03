@@ -3,7 +3,10 @@
     "ecmaVersion": 9,
     "sourceType": "module"
   },
-  "extends": "airbnb-base",
+  "extends": [
+    "airbnb-base",
+    "prettier"
+  ],
   "globals": {
     "document": true,
     "window": true,
@@ -12,12 +15,32 @@
     "allowTemplateLiterals": true
   },
   "rules": {
-    "no-console": [1, { "allow": ["error", "warn"] }],
-    "comma-dangle": ["error", "only-multiline"],
+    "no-console": [
+      1,
+      {
+        "allow": [
+          "error",
+          "warn"
+        ]
+      }
+    ],
+    "comma-dangle": [
+      "error",
+      "only-multiline"
+    ],
     "no-debugger": 1,
     "class-methods-use-this": 0,
     "linebreak-style": 0,
-    "max-len": [1,600,2],
-    "no-plusplus": [2, { "allowForLoopAfterthoughts": true }]
+    "max-len": [
+      1,
+      600,
+      2
+    ],
+    "no-plusplus": [
+      2,
+      {
+        "allowForLoopAfterthoughts": true
+      }
+    ]
   }
 }
